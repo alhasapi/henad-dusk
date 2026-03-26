@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -100,15 +100,41 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
+alias ez="nvim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+
 [ -f "/home/alhasapi/.ghcup/env" ] && . "/home/alhasapi/.ghcup/env" # ghcup-env
+
 adbc() {
   adb connect $(ip r show | awk '{ print $3 }' | head -n 1):5555
+}
+
+lfd() {
+  target_directory=$1
+  ip=$(ip r show | awk '{ print $3 }' | head -n 1)
+
+  # if [[ $target_directory -eq "" ]]; then
+  #   echo "Must input the directory name!!!"
+  #   exit -1
+  # fi
+
+  scp -r -P 8022 u0_a172@$ip:$target_directory  .
 }
 
 ska() {
   adbc
   scrcpy -K
 }
+
+p() {
+  yt-dlp $1 -f hls-480p -R 10000000000000
+}
+p3() {
+  yt-dlp $1 -f hls-360p -R 10000000000000
+}
+
+pl() {
+  yt-dlp $1 -F
+}
+

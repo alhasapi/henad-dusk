@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Hitman - Absolution
+Exec=env WINEPREFIX="/home/alhasapi/.wine" wine C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\Start\\ Menu\\\\Programs\\\\Hitman\\ -\\ Absolution\\ [GOG.com]\\\\Hitman\\ -\\ Absolution.lnk
+Type=Application
+StartupNotify=true
+Path=/home/alhasapi/.wine/dosdevices/c:/GOG Games/Hitman Absolution
+Icon=A71E_goggame-1757179626.0
+StartupWMClass=hma.exe
